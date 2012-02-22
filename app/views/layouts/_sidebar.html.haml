@@ -1,0 +1,18 @@
+%aside
+  %section
+    %header
+      %ul.animatedList
+        %li
+          = link_to 'Add new post', new_post_path
+  %section
+    %header
+      %h3="Categories"
+    %ul#categoriesList.animatedList
+      - @categories.each do |c|
+        %li=link_to c.name, root_path(:category => c.name)
+  %section
+    %header
+      %h3="Archives"
+    %ul.animatedList
+      - @archive_entries.each do |a|
+        %li=link_to a, root_path(:archive => a)

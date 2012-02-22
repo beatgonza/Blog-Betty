@@ -1,0 +1,13 @@
+
+%section#editor
+
+  .new_post
+    .header
+      %h1 Editing Post
+      .links
+        .button
+          = link_to 'Back', :back
+        .button
+          = link_to "All Posts", posts_path
+
+    = render 'form'

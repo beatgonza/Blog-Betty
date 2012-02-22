@@ -1,0 +1,26 @@
+%h3 Post a comment
+
+= form_for comment do |f|
+  -if comment.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(comment.errors.count, "error")} prohibited this comment from being saved:"
+      %ul
+        - comment.errors.full_messages.each do |msg|
+          %li= msg
+
+  = fields_for comment.user do |u|
+    %p
+      = u.label :name, 'Name:'
+      = u.text_field :name
+    %p
+      = u.label :email, 'Email:'
+      = u.text_field :email
+    
+  %p
+    = f.label :body, 'Comment:'
+    = f.text_area :body
+
+  = f.hidden_field :post_id
+
+  .actions
+    = f.submit 'Post Comment'

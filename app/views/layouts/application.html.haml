@@ -1,0 +1,19 @@
+!!!
+%html{:lang => "en"}
+  %head
+    = javascript_include_tag "application"
+    = stylesheet_link_tag "application"
+    %title="Blog Home"
+  %body
+    = render 'layouts/header'
+    #content
+      - if params[:action] != "edit" && params[:action] != "new" && params[:action] != "index"
+        #mainContent
+          = render 'layouts/main_menu'
+          = yield
+        = render 'layouts/sidebar'
+      - else
+        = render 'layouts/main_menu'
+        = yield
+
+    = render 'layouts/footer'

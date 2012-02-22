@@ -1,0 +1,32 @@
+= form_for @post do |f|
+  -if @post.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+      %ul
+        - @post.errors.full_messages.each do |msg|
+          %li= msg
+
+  #editorHeader
+    #titleDiv
+      %p
+        = f.label :title, 'Title:'
+        = f.text_field :title
+  %p
+    = f.label :category_id, 'Category:'
+    = select_tag 'post[category_id]', options_from_collection_for_select(Category.all, 'id', 'name')
+
+  %p
+    = f.label :image, 'Image:'
+    = f.text_field :image
+    
+  %p
+    = f.label :body, 'Content:'
+    = f.text_area :body
+
+  .actions
+    = f.submit 'Save'
+
+%script{:src => "http://js.nicedit.com/nicEdit-latest.js", :type => "text/javascript"}
+
+:javascript
+  bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });

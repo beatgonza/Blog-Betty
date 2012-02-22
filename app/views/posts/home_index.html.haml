@@ -1,0 +1,14 @@
+#allPosts
+  - @posts.each do |post|
+    .posts
+      %article
+        %header
+          %h3=post.title
+          %h5="- " + post.category.name + " -" 
+          = render 'post_time_info', :post => post, :comments_count_link => (post_path(post) + "#comments")
+        .postContent
+          = image_tag(post.image)
+          %p
+            = post.body
+            %br
+            = link_to "Read more...", post

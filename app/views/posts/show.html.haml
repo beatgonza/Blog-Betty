@@ -1,0 +1,26 @@
+%p#notice= notice
+
+%section#postDetail
+  %article.blogPost
+    %header
+      %h2=@post.title
+      = render 'post_time_info', :post => @post, :comments_count_link => '#comments'
+    %div
+      = image_tag (@post.image)
+      %p=@post.body
+
+%section#comments
+  %h3 Comments
+  - @post.comments.each do |c|
+    %article
+      %header
+        = link_to c.user.name, "#"
+        on
+        %time{:datetime => c.time_tag_time}
+          = c.label_time
+      %p=c.body
+  - if @post.comments.empty?
+    = "No comments for this post"
+
+#new_comment_form
+  = render 'comments/form', :comment => @comment

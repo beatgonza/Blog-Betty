@@ -1,0 +1,10 @@
+%p
+  Posted on
+  %time{:datetime => post.time_tag_time}
+    = post.label_time
+  by
+  = link_to post.user.name, "#"
+  \-
+  = link_to "#{post.comments.count} comments", comments_count_link
+  |
+  = link_to "Edit", edit_post_path(post)

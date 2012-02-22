@@ -1,0 +1,13 @@
+development: &development
+  database: blog
+  adapter: mysql2
+  host: localhost
+  username: root
+  password:
+
+test: &test
+  database: blog
+  adapter: mysql2
+  host: localhost
+  username: root
+  password:
