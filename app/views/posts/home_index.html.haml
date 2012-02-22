@@ -12,3 +12,4 @@
             = truncate(post.body, :length => 200)
             %br
             = link_to "Read more...", post
+  = "No posts in the site." if @posts.empty?
