@@ -8,6 +8,3 @@
 //= require jquery_ujs
 //= require_tree .
 //= require all_posts
-//= require detail
-//= require editor
-//= require home

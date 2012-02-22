@@ -42,7 +42,7 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     binding.pry
-    @user = User.create(params[:user])
+    @user = User.find_by_email(params[:user][:email]).present? ? User.find_by_email(params[:user][:email]) : User.create(params[:user])
     @comment = Comment.new(params[:comment])
     @comment.user = @user
 

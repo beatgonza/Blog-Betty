@@ -4,10 +4,12 @@
   %article.blogPost
     %header
       %h2=@post.title
+      %h5="- " + @post.category.name + " -" 
       = render 'post_time_info', :post => @post, :comments_count_link => '#comments'
     %div
       = image_tag (@post.image)
-      %p=@post.body
+      %p
+        = @post.body
 
 %section#comments
   %h3 Comments
@@ -18,7 +20,10 @@
         on
         %time{:datetime => c.time_tag_time}
           = c.label_time
-      %p=c.body
+      %p
+        =c.body
+        %br
+        = link_to 'Delete', c, :confirm => 'Are you sure?', :method => :delete
   - if @post.comments.empty?
     = "No comments for this post"
 

@@ -1,3 +1,7 @@
+#notice {
+	color: #060;
+}
+
 header, footer, section, aside, nav, article {
 	display: block;
 }
