@@ -204,6 +204,7 @@ aside {
 				display: block;
 				font-weight: bold;
 				color: #000;
+				text-decoration: none;
 			}
 			
 				#comments article header a:hover {
@@ -215,9 +216,7 @@ aside {
 		}
 
 .commentsDivs{
-	
 	padding: 22px;
-		
 }
 
 .commentsDivs:nth-child(odd){
@@ -228,6 +227,12 @@ aside {
 	-moz-border-radius: 11px;
 	-webkit-border-radius: 11px;
 		
+}
+
+#comments #allComments .commentsDivs article header a.delete {
+	font-weight: normal;
+	color: #777;
+	text-decoration: underline;
 }
 
 #editor {
@@ -494,13 +499,47 @@ footer p a:hover {
 	margin-right: 10px;
 	height: 25px;
 	width: 80px;
-	background-color: #859018;
 	cursor: pointer;
-	color: white;
-	text-decoration: none;
+	color: black;
+	text-decoration: underline;
 	font-weight: bold;
 }
 
 #postDetail article  header p {
 	font-style: normal;
+}
+
+
+.actions {
+	-moz-box-shadow:inset 0px 1px 0px 0px #caefab;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
+	box-shadow:inset 0px 1px 0px 0px #caefab;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #437010), color-stop(1, #8cb812) );
+	background:-moz-linear-gradient( center top, #437010 5%, #8cb812 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#437010', endColorstr='#8cb812');
+	background-color:#437010;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #5f8017;
+	display:inline-block;
+	color:#f1ffe5;
+	font-family:arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 1px #2d3b1f;
+}
+
+.actions:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8cb812), color-stop(1, #437010) );
+	background:-moz-linear-gradient( center top, #8cb812 5%, #437010 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8cb812', endColorstr='#437010');
+	background-color:#8cb812;
+}
+
+.actions:active {
+	position:relative;
+	top:1px;
 }

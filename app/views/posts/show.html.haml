@@ -13,19 +13,21 @@
 
 %section#comments
   %h3 Comments
-  - @post.comments.each do |c|
-    %article
-      %header
-        = link_to c.user.name, "#"
-        on
-        %time{:datetime => c.time_tag_time}
-          = c.label_time
-      %p
-        =c.body
-        %br
-        = link_to 'Delete', c, :confirm => 'Are you sure?', :method => :delete
-  - if @post.comments.empty?
-    = "No comments for this post"
+  #allComments
+    - @post.comments.each do |c|
+      .commentsDivs
+        %article
+          %header
+            = link_to c.user.name, "#"
+            on
+            %time{:datetime => c.time_tag_time}
+              = c.label_time
+            %br
+            = link_to 'Delete', c, :confirm => 'Are you sure?', :method => :delete, :class => "delete"
+          %p
+            =c.body
+    - if @post.comments.empty?
+      = "No comments for this post"
 
 #new_comment_form
   = render 'comments/form', :comment => @comment

@@ -23,7 +23,7 @@
     = f.label :body, 'Content:'
     = f.text_area :body
 
-  .actions
-    = f.submit 'Save'
+  %div
+    = f.submit 'Save', :class => "actions"
 
 %script{:src => "http://js.nicedit.com/nicEdit-latest.js", :type => "text/javascript"}
